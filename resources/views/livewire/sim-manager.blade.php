@@ -94,7 +94,7 @@
                     >
                         <li class=" font-medium px-3 text-lg">Nhà mạng</li>
                         @foreach ($networks as $network )
-                        <li @click.away="isOpen = false">
+                        <li >
                             <label class="flex items-center px-3 py-2 hover:bg-gray-200">
                                 <input type="checkbox" class="p-3 w-5 h-5" wire:model='filterNetworks' value="{{$network->id}}">
                                 <span class="ml-2">{{$network->name}}</span>
@@ -104,38 +104,38 @@
 
 
                         <li class=" font-medium px-3 text-lg">Trạng thái</li>
-                        <li @click.away="isOpen = false">
+                        <li>
                             <label class="flex items-center px-3 py-2 hover:bg-gray-200">
                                 <input type="checkbox" class="p-3 w-5 h-5" wire:model='filterStatus' value="0">
                                 <span class="ml-2">Hoạt động</span>
                             </label>
                         </li>
-                        <li @click.away="isOpen = false">
+                        <li>
                             <label class="flex items-center px-3 py-2 hover:bg-gray-200">
                                 <input type="checkbox" class="p-3 w-5 h-5" wire:model='filterStatus' value="1">
                                 <span class="ml-2">Tạm cắt</span>
                             </label>
                         </li>
-                        <li @click.away="isOpen = false">
+                        <li>
                             <label class="flex items-center px-3 py-2 hover:bg-gray-200">
                                 <input type="checkbox" class="p-3 w-5 h-5" wire:model='filterStatus' value="2">
                                 <span class="ml-2">Huỷ</span>
                             </label>
                         </li>
-                        <li @click.away="isOpen = false">
+                        <li>
                             <label class="flex items-center px-3 py-2 hover:bg-gray-200">
                                 <input type="checkbox" class="p-3 w-5 h-5" wire:model='filterStatus' value="3">
                                 <span class="ml-2">Đang làm mới</span>
                             </label>
                         </li>
                         <li class=" font-medium px-3 text-lg">Tình trạng</li>
-                        <li @click.away="isOpen = false">
+                        <li>
                             <label class="flex items-center px-3 py-2 hover:bg-gray-200">
                                 <input type="checkbox" class="p-3 w-5 h-5"  wire:model='filterRent' value="0">
                                 <span class="ml-2">Chưa cho thuê</span>
                             </label>
                         </li>
-                        <li @click.away="isOpen = false">
+                        <li>
                             <label class="flex items-center px-3 py-2 hover:bg-gray-200">
                                 <input type="checkbox" class="p-3 w-5 h-5" wire:model='filterRent' value="1">
                                 <span class="ml-2">Đang cho thuê</span>
@@ -237,44 +237,44 @@
 
                                     <li class="context-menu-item change-status" data-status="1">
 
-                                        <a wire:click='changeStatus({{$sim->id}},0)' href="javascript:;"
+                                        <a @click.away="isOpen = false" wire:click='changeStatus({{$sim->id}},0)' href="javascript:;"
                                             class="block py-2 px-4 hover:hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-white">{{__('active')}}</a>
                                     </li>
-                                    <li wire:click='$emit("openModal", "edit-sim-modal", {{ json_encode(["sim" => $sim->id]) }})'>
+                                    <li @click.away="isOpen = false" wire:click='$emit("openModal", "edit-sim-modal", {{ json_encode(["sim" => $sim->id]) }})'>
                                         <a href="javascript:;" class="btn-edit-sim block py-2 px-4 hover:hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-white"
                                             >{{__('Edit')}}</a>
                                     </li>
-                                    <li class="context-menu-item change-status">
+                                    <li @click.away="isOpen = false" class="context-menu-item change-status">
 
                                         <a wire:click='changeStatus({{$sim->id}},1)'  href="javascript:;"
                                             class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-white">{{__('temporarily cut')}}</a>
                                     </li>
-                                    <li class="context-menu-item change-status" >
+                                    <li @click.away="isOpen = false" class="context-menu-item change-status" >
 
                                         <a wire:click='changeStatus({{$sim->id}},2)'  href="javascript:;"
                                             class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-white">{{__('Cancel')}}</a>
                                     </li>
-                                    <li class="context-menu-item change-status" >
+                                    <li @click.away="isOpen = false" class="context-menu-item change-status" >
                                         <a wire:click='changeStatus({{$sim->id}},3)'  href="javascript:;"
                                             class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-white">{{__('reset')}}</a>
                                     </li>
-                                    <li class="invoice-btn">
+                                    <li @click.away="isOpen = false" class="invoice-btn">
                                         <a wire:click='$emit("openModal", "customer-infomation-modal", {{ json_encode(["id" => $sim->id]) }})' href="javascript:;" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-white"
                                             >{{__('Customer inofmation')}}</a>
                                     </li>
-                                    <li>
+                                    <li @click.away="isOpen = false">
                                         <a wire:click='$emit("openModal", "extend-modal", {{ json_encode(["sim" => $sim->id]) }})' href="javascript:;" class="rent-btn block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-white">Gia hạn</a>
                                     </li>
-                                    <li>
+                                    <li @click.away="isOpen = false">
                                         <a wire:click='$emit("openModal", "rent-single-modal", {{ json_encode(["sim" => $sim->id]) }})' href="javascript:;" class="rent-btn block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-white"
                                             >{{__('rent')}}</a>
                                     </li>
 
-                                    <li class="btn-delete-sim">
+                                    <li @click.away="isOpen = false" class="btn-delete-sim">
                                         <a wire:click='deleteSim({{$sim->id}})'
                                             class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-white">{{__('Delete')}}</a>
                                     </li>
-                                    <li class="btn-history">
+                                    <li @click.away="isOpen = false" class="btn-history">
                                         <a href="{{url('lich-su-thay-doi', $sim->id)}}" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-white">{{__('Lịch sử
                                             thay đổi')}}</a>
                                     </li>
