@@ -5,20 +5,20 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="apple-touch-icon" sizes="76x76" href="./assets/img/apple-icon.png" />
-    <link rel="icon" type="image/png" href="{{asset('build/assets/img/favicon.png')}}" />
+    <link rel="icon" type="image/png" href="{{asset('assets/img/favicon.png')}}" />
     <title>CTR</title>
     <!--     Fonts and icons     -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
     <!-- Font Awesome Icons -->
     <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
     <!-- Nucleo Icons -->
-    <link href="{{asset('build/assets/css/nucleo-icons.css')}}" rel="stylesheet" />
-    <link href="{{asset('build/assets/css/nucleo-svg.css')}}" rel="stylesheet" />
+    <link href="{{asset('assets/css/nucleo-icons.css')}}" rel="stylesheet" />
+    <link href="{{asset('assets/css/nucleo-svg.css')}}" rel="stylesheet" />
     <!-- Popper -->
     <script src="https://unpkg.com/@popperjs/core@2"></script>
     <!-- Main Styling -->
-    <link rel="stylesheet" href="{{asset('build/assets/css/argon-dashboard-tailwind.min.css')}}">
-    <link rel="stylesheet" href="{{asset('build/assets/css/perfect-scrollbar.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/argon-dashboard-tailwind.min.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/perfect-scrollbar.css')}}">
 
     @vite(['resources/css/app.css','resources/js/app.js'])
     {{-- <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script> --}}
@@ -142,7 +142,7 @@
                                         href="javascript:;">
                                         <div class="flex py-1">
                                             <div class="my-auto">
-                                                <img src="{{asset('build/assets/img/team-2.jpg')}}"
+                                                <img src="{{asset('assets/img/team-2.jpg')}}"
                                                     class="inline-flex items-center justify-center mr-4 text-sm text-white h-9 w-9 max-w-none rounded-xl" />
                                             </div>
                                             <div class="flex flex-col justify-center">
@@ -162,7 +162,7 @@
                                         href="javascript:;">
                                         <div class="flex py-1">
                                             <div class="my-auto">
-                                                <img src="{{asset('build/assets/img/theme/spotify.jpeg')}}"
+                                                <img src="{{asset('assets/img/theme/spotify.jpeg')}}"
                                                     class="inline-flex items-center justify-center mr-4 text-sm text-white bg-gradient-to-tl from-zinc-800 to-zinc-700 dark:bg-gradient-to-tl dark:from-slate-750 dark:to-gray-850 h-9 w-9 max-w-none rounded-xl" />
                                             </div>
                                             <div class="flex flex-col justify-center">
@@ -392,15 +392,15 @@
 </body>
 <!-- plugin for charts  -->
 {{-- <script src="./assets/js/plugins/chartjs.min.js" async></script> --}}
-{{-- <script src="{{asset('build/assets/js/plugins/chartjs.min.js')}}"></script> --}}
-<script src="{{asset('build/assets/js/carousel.js')}}"></script>
-<script src="{{asset('build/assets/js/dropdown.js')}}"></script>
-{{-- <script src="{{asset('build/assets/js/fixed-plugin.js')}}"></script> --}}
-<script src="{{asset('build/assets/js/navbar-sticky.js')}}"></script>
-<script src="{{asset('build/assets/js/sidenav-burger.js')}}"></script>
-{{-- <script src="{{asset('build/assets/js/charts.js')}}"></script> --}}
+{{-- <script src="{{asset('assets/js/plugins/chartjs.min.js')}}"></script> --}}
+<script src="{{asset('assets/js/carousel.js')}}"></script>
+<script src="{{asset('assets/js/dropdown.js')}}"></script>
+{{-- <script src="{{asset('assets/js/fixed-plugin.js')}}"></script> --}}
+<script src="{{asset('assets/js/navbar-sticky.js')}}"></script>
+<script src="{{asset('assets/js/sidenav-burger.js')}}"></script>
+{{-- <script src="{{asset('assets/js/charts.js')}}"></script> --}}
 <!-- plugin for scrollbar  -->
-<script src="{{asset('build/assets/js/perfect-scrollbar.js')}}"></script>
+<script src="{{asset('assets/js/perfect-scrollbar.js')}}"></script>
 @yield('js')
 
 </html>

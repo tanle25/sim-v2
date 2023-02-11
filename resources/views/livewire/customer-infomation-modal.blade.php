@@ -14,7 +14,7 @@
         />
         @else
         <img
-          src="{{asset('build/assets/img/noimage.png')}}"
+          src="{{asset('assets/img/noimage.png')}}"
           class="aspect-video w-full object-cover"
           alt=""
         />

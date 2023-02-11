@@ -23,7 +23,7 @@ class UserSeeder extends Seeder
             'name'=>'Tan le',
             'phone'=>'0972685031',
             'status'=>true,
-            'avatar'=>'build/assets/img/team-1.jpg',
+            'avatar'=>'assets/img/team-1.jpg',
             'is_admin'=>false
         ]);
         User::create([
@@ -32,7 +32,7 @@ class UserSeeder extends Seeder
             'name'=>'Admin',
             'phone'=>'0972685033',
             'status'=>true,
-            'avatar'=>'build/assets/img/team-2.jpg',
+            'avatar'=>'assets/img/team-2.jpg',
             'is_admin'=>true
         ]);
     }

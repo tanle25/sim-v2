@@ -145,7 +145,7 @@
                     <div slider class="relative w-full h-full overflow-hidden rounded-2xl">
                         <!-- slide 1 -->
                         <div slide class="absolute w-full h-full transition-all duration-500">
-                            <img class="object-cover h-full" src="{{asset('build/assets/img/carousel-1.jpg')}}"
+                            <img class="object-cover h-full" src="{{asset('assets/img/carousel-1.jpg')}}"
                                 alt="carousel image" />
                             <div
                                 class="block text-start ml-12 left-0 bottom-0 absolute right-[15%] pt-5 pb-5 text-white">
@@ -161,7 +161,7 @@
 
                         <!-- slide 2 -->
                         <div slide class="absolute w-full h-full transition-all duration-500">
-                            <img class="object-cover h-full" src="{{asset('build/assets/img/carousel-2.jpg')}}"
+                            <img class="object-cover h-full" src="{{asset('assets/img/carousel-2.jpg')}}"
                                 alt="carousel image" />
                             <div
                                 class="block text-start ml-12 left-0 bottom-0 absolute right-[15%] pt-5 pb-5 text-white">
@@ -177,7 +177,7 @@
 
                         <!-- slide 3 -->
                         <div slide class="absolute w-full h-full transition-all duration-500">
-                            <img class="object-cover h-full" src="{{asset('build/assets/img/carousel-3.jpg')}}"
+                            <img class="object-cover h-full" src="{{asset('assets/img/carousel-3.jpg')}}"
                                 alt="carousel image" />
                             <div
                                 class="block text-start ml-12 left-0 bottom-0 absolute right-[15%] pt-5 pb-5 text-white">
@@ -220,7 +220,7 @@
                                             class="p-2 align-middle bg-transparent border-b w-3/10 whitespace-nowrap dark:border-white/40">
                                             <div class="flex items-center px-2 py-1">
                                                 <div>
-                                                    <img src="{{asset('build/assets/img/icons/flags/US.png')}}"
+                                                    <img src="{{asset('assets/img/icons/flags/US.png')}}"
                                                         alt="Country flag" />
                                                 </div>
                                                 <div class="ml-6">
@@ -265,7 +265,7 @@
                                             class="p-2 align-middle bg-transparent border-b w-3/10 whitespace-nowrap dark:border-white/40">
                                             <div class="flex items-center px-2 py-1">
                                                 <div>
-                                                    <img src="{{asset('build/assets/img/icons/flags/DE.png')}}"
+                                                    <img src="{{asset('assets/img/icons/flags/DE.png')}}"
                                                         alt="Country flag" />
                                                 </div>
                                                 <div class="ml-6">
@@ -309,7 +309,7 @@
                                             class="p-2 align-middle bg-transparent border-b w-3/10 whitespace-nowrap dark:border-white/40">
                                             <div class="flex items-center px-2 py-1">
                                                 <div>
-                                                    <img src="{{asset('build/assets/img/icons/flags/GB.png')}}"
+                                                    <img src="{{asset('assets/img/icons/flags/GB.png')}}"
                                                         alt="Country flag" />
                                                 </div>
                                                 <div class="ml-6">
@@ -353,7 +353,7 @@
                                         <td class="p-2 align-middle bg-transparent border-0 w-3/10 whitespace-nowrap">
                                             <div class="flex items-center px-2 py-1">
                                                 <div>
-                                                    <img src="{{asset('build/assets/img/icons/flags/BR.png')}}"
+                                                    <img src="{{asset('assets/img/icons/flags/BR.png')}}"
                                                         alt="Country flag" />
                                                 </div>
                                                 <div class="ml-6">
