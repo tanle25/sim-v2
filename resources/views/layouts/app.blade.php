@@ -397,7 +397,7 @@
 <script src="{{asset('assets/js/dropdown.js')}}"></script>
 {{-- <script src="{{asset('assets/js/fixed-plugin.js')}}"></script> --}}
 <script src="{{asset('assets/js/navbar-sticky.js')}}"></script>
-<script src="{{asset('assets/js/sidenav-burger.js')}}"></script>
+{{-- <script src="{{asset('assets/js/sidenav-burger.js')}}"></script> --}}
 {{-- <script src="{{asset('assets/js/charts.js')}}"></script> --}}
 <!-- plugin for scrollbar  -->
 <script src="{{asset('assets/js/perfect-scrollbar.js')}}"></script>
