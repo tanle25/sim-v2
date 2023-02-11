@@ -94,7 +94,7 @@
                     >
                         <li class=" font-medium px-3 text-lg">Nhà mạng</li>
                         @foreach ($networks as $network )
-                        <li>
+                        <li @click.away="isOpen = false">
                             <label class="flex items-center px-3 py-2 hover:bg-gray-200">
                                 <input type="checkbox" class="p-3 w-5 h-5" wire:model='filterNetworks' value="{{$network->id}}">
                                 <span class="ml-2">{{$network->name}}</span>
@@ -104,38 +104,38 @@
 
 
                         <li class=" font-medium px-3 text-lg">Trạng thái</li>
-                        <li>
+                        <li @click.away="isOpen = false">
                             <label class="flex items-center px-3 py-2 hover:bg-gray-200">
                                 <input type="checkbox" class="p-3 w-5 h-5" wire:model='filterStatus' value="0">
                                 <span class="ml-2">Hoạt động</span>
                             </label>
                         </li>
-                        <li>
+                        <li @click.away="isOpen = false">
                             <label class="flex items-center px-3 py-2 hover:bg-gray-200">
                                 <input type="checkbox" class="p-3 w-5 h-5" wire:model='filterStatus' value="1">
                                 <span class="ml-2">Tạm cắt</span>
                             </label>
                         </li>
-                        <li>
+                        <li @click.away="isOpen = false">
                             <label class="flex items-center px-3 py-2 hover:bg-gray-200">
                                 <input type="checkbox" class="p-3 w-5 h-5" wire:model='filterStatus' value="2">
                                 <span class="ml-2">Huỷ</span>
                             </label>
                         </li>
-                        <li>
+                        <li @click.away="isOpen = false">
                             <label class="flex items-center px-3 py-2 hover:bg-gray-200">
                                 <input type="checkbox" class="p-3 w-5 h-5" wire:model='filterStatus' value="3">
                                 <span class="ml-2">Đang làm mới</span>
                             </label>
                         </li>
                         <li class=" font-medium px-3 text-lg">Tình trạng</li>
-                        <li>
+                        <li @click.away="isOpen = false">
                             <label class="flex items-center px-3 py-2 hover:bg-gray-200">
                                 <input type="checkbox" class="p-3 w-5 h-5"  wire:model='filterRent' value="0">
                                 <span class="ml-2">Chưa cho thuê</span>
                             </label>
                         </li>
-                        <li>
+                        <li @click.away="isOpen = false">
                             <label class="flex items-center px-3 py-2 hover:bg-gray-200">
                                 <input type="checkbox" class="p-3 w-5 h-5" wire:model='filterRent' value="1">
                                 <span class="ml-2">Đang cho thuê</span>
