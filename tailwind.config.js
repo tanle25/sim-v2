@@ -18,6 +18,10 @@ darkMode: "class",
             '700px':'700px',
             '500':'500',
 
+        },
+        minHeight:{
+            '700px':'700px',
+            '50vh':'50vh'
         }
     },
   },

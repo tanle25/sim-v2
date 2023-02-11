@@ -3,14 +3,11 @@
 @section('content')
 @livewire('livewire-toast')
 
+@can('is-admin')
+
 <div class="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
     <div class="flex items-start rounded-xl bg-white p-4 shadow-lg">
         <div class="flex h-12 w-12 items-center justify-center rounded-full border border-blue-100 bg-blue-50">
-            {{-- <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-400" fill="none" viewBox="0 0 24 24"
-                stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round"
-                    d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" />
-            </svg> --}}
             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000" class="w-6 h-6" version="1.1" id="Layer_1" viewBox="0 0 511.893 511.893" xml:space="preserve">
                 <g>
                     <g>
@@ -79,93 +76,100 @@
         </div>
     </div>
 </div>
+@else
+<livewire:customer-dashboard>
+@endcan
+
 @endsection
 @section('js')
     <!-- Required chart.js -->
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    @can('is-admin')
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-<!-- Chart line -->
-<script>
-  var ctx1 = document.getElementById("chart-line").getContext("2d");
+    <!-- Chart line -->
+    <script>
+      var ctx1 = document.getElementById("chart-line").getContext("2d");
 
-var gradientStroke1 = ctx1.createLinearGradient(0, 230, 0, 50);
+    var gradientStroke1 = ctx1.createLinearGradient(0, 230, 0, 50);
 
-gradientStroke1.addColorStop(1, 'rgba(94, 114, 228, 0.2)');
-gradientStroke1.addColorStop(0.2, 'rgba(94, 114, 228, 0.0)');
-gradientStroke1.addColorStop(0, 'rgba(94, 114, 228, 0)');
-new Chart(ctx1, {
-  type: "line",
-  data: {
-    // labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-    datasets: [{
-      label: "Doanh thu",
-      tension: 0.4,
-      borderWidth: 0,
-      pointRadius: 0,
-      borderColor: "#5e72e4",
-      backgroundColor: gradientStroke1,
-      borderWidth: 3,
-      fill: true,
-      data: @json($revenue),
-      maxBarThickness: 6
+    gradientStroke1.addColorStop(1, 'rgba(94, 114, 228, 0.2)');
+    gradientStroke1.addColorStop(0.2, 'rgba(94, 114, 228, 0.0)');
+    gradientStroke1.addColorStop(0, 'rgba(94, 114, 228, 0)');
+    new Chart(ctx1, {
+      type: "line",
+      data: {
+        // labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+        datasets: [{
+          label: "Doanh thu",
+          tension: 0.4,
+          borderWidth: 0,
+          pointRadius: 0,
+          borderColor: "#5e72e4",
+          backgroundColor: gradientStroke1,
+          borderWidth: 3,
+          fill: true,
+          data: @json($revenue),
+          maxBarThickness: 6
 
-    }],
-  },
-  options: {
-    responsive: true,
-    maintainAspectRatio: false,
-    plugins: {
-      legend: {
-        display: false,
-      }
-    },
-    interaction: {
-      intersect: false,
-      mode: 'index',
-    },
-    scales: {
-      y: {
-        grid: {
-          drawBorder: false,
-          display: true,
-          drawOnChartArea: true,
-          drawTicks: false,
-          borderDash: [5, 5]
-        },
-        ticks: {
-          display: true,
-          padding: 10,
-          color: '#fbfbfb',
-          font: {
-            size: 11,
-            family: "Open Sans",
-            style: 'normal',
-            lineHeight: 2
-          },
-        }
+        }],
       },
-      x: {
-        grid: {
-          drawBorder: false,
-          display: false,
-          drawOnChartArea: false,
-          drawTicks: false,
-          borderDash: [5, 5]
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: {
+            display: false,
+          }
         },
-        ticks: {
-          display: true,
-          color: '#ccc',
-          padding: 20,
-          font: {
-            size: 11,
-            family: "Open Sans",
-            style: 'normal',
-            lineHeight: 2
+        interaction: {
+          intersect: false,
+          mode: 'index',
+        },
+        scales: {
+          y: {
+            grid: {
+              drawBorder: false,
+              display: true,
+              drawOnChartArea: true,
+              drawTicks: false,
+              borderDash: [5, 5]
+            },
+            ticks: {
+              display: true,
+              padding: 10,
+              color: '#fbfbfb',
+              font: {
+                size: 11,
+                family: "Open Sans",
+                style: 'normal',
+                lineHeight: 2
+              },
+            }
           },
-        }
+          x: {
+            grid: {
+              drawBorder: false,
+              display: false,
+              drawOnChartArea: false,
+              drawTicks: false,
+              borderDash: [5, 5]
+            },
+            ticks: {
+              display: true,
+              color: '#ccc',
+              padding: 20,
+              font: {
+                size: 11,
+                family: "Open Sans",
+                style: 'normal',
+                lineHeight: 2
+              },
+            }
+          },
+        },
       },
-    },
-  },
-});
-</script>
+    });
+    </script>
+    @endcan
+
 @endsection

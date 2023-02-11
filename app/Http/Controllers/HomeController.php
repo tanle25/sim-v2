@@ -17,9 +17,9 @@ class HomeController extends Controller
     {
         # code...
 
-        if(Auth::user()->is_admin == 0){
-            return redirect('danh-sach-sim');
-        }
+        // if(Auth::user()->is_admin == 0){
+        //     return redirect('danh-sach-sim');
+        // }
 
 
         $month = Carbon::today()->month;
