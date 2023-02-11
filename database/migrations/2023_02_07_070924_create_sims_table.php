@@ -1,0 +1,40 @@
+<?php
+
+use App\Models\Network;
+use App\Models\User;
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('sims', function (Blueprint $table) {
+            $table->id();
+            $table->string('phone');
+            $table->string('iccid');
+            $table->integer('old_iccid')->nullable();
+            $table->foreignIdFor(Network::class)->nullable()->constrained()->cascadeOnDelete();
+            $table->date('expired_at')->nullable();
+            $table->integer('status')->default(0);
+            $table->softDeletes();
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('sims');
+    }
+};
