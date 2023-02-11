@@ -142,7 +142,7 @@
                             </label>
                         </li>
                     </ul>
-                    <button class=" w-full px-3 py-2.5 bg-green-600 text-white font-bold hover:bg-green-800 border rounded ">OK</button>
+                    {{-- <button class=" w-full px-3 py-2.5 bg-green-600 text-white font-bold hover:bg-green-800 border rounded ">OK</button> --}}
                 </div>
 
                 </div>
