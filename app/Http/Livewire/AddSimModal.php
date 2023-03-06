@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Network;
 use App\Models\Sim;
 use Livewire\Component;
 use LivewireUI\Modal\ModalComponent;
@@ -9,7 +10,8 @@ use LivewireUI\Modal\ModalComponent;
 class AddSimModal extends ModalComponent
 {
     public $sim;
-
+    public $networks;
+    public $network;
     protected $rules =[
         'sim.phone'=>'required',
         'sim.iccid'=>'required',
@@ -30,24 +32,28 @@ class AddSimModal extends ModalComponent
     {
         # code...
         $this->sim = new Sim();
+        $this->networks = Network::all();
+
     }
 
     public function submit()
     {
         # code...
         // dd($this->sim);
+        $this->sim->network_id = $this->network;
         $this->validate([
-            'sim.phone'=>'required|unique:sims,phone',
-            'sim.iccid'=>'required|unique:sims,iccid',
-            'sim.network_id'=>'nullable|exists:networks,id'
+            'sim.phone'=>'required|unique:sims,phone|digits_between:10,15',
+            'sim.iccid'=>'required|unique:sims,iccid|digits_between:10,20',
+            'network'=>'nullable|exists:networks,id'
         ],[
             'required'=>':attribute không được để trống',
             'unique'=>':attribute đã tồn tại',
-            'exists'=>':attribure không tồn tại'
+            'exists'=>':attribure không tồn tại',
+            'digits_between'=>'Độ dài :attribute không phù hợp'
         ],[
             'sim.phone'=>'Số điện thoại',
             'sim.iccid'=>'ICCID',
-            'sim.network_id'=>'Nhà mạng'
+            'network'=>'Nhà mạng',
         ]);
         $this->sim->save();
         $this->closeModal();

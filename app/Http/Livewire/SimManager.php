@@ -9,6 +9,7 @@ use App\Models\Sim;
 use Livewire\Component;
 use Livewire\WithPagination;
 use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 use Maatwebsite\Excel\Facades\Excel;
 
@@ -117,9 +118,13 @@ class SimManager extends Component
 
     public function render()
     {
-        $collection = Sim::query();
         $keyword = $this->keyword;
-        $collection->where('phone','LIKE',"%{$keyword}%");
+        $collection = DB::table('sims')->where(function($q) use($keyword){
+            return $q->where('phone','like',"%$keyword%")
+            ->orWhere('iccid','like',"%$keyword%");
+        });
+
+        // $collection->where('phone','LIKE',"%{$keyword}%");
         if(count($this->filterNetworks)){
             $collection = $collection->whereIn('network_id', $this->filterNetworks);
 
@@ -137,13 +142,7 @@ class SimManager extends Component
         $collection = $collection->get();
         $items = $collection->forPage($this->page, $this->perPage);
         $simCards = new LengthAwarePaginator($items, $collection->count(), $this->perPage, $this->page);
-        // if($this->checkedState){
-        //     $this->sims = $simCards->map(function($item){
-        //         return $item->id;
-        //     });
-        // }else{
-        //     $this->sims = [];
-        // }
+
         return view('livewire.sim-manager',['simCards'=>$simCards]);
     }
 }

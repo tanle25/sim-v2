@@ -21,15 +21,21 @@
                     <div class=" text-left mb-3">
                         <label for="">ICCID <span class="text-sm text-orange-500">(10-20 số)</span></label>
                         @error('sim.iccid')<span class="text-sm text-red-500">{{$message}}</span> @enderror
-                        <input wire:model='sim.iccid' type="number" class=" px-3 py-2.5 border border-gray-200  w-full rounded" placeholder="Số điện thoại">
+                        <input wire:model='sim.iccid' type="number" class=" px-3 py-2.5 border border-gray-200  w-full rounded" placeholder="ICCID">
 
                     </div>
 
                     <div class=" text-left mb-3">
                         <label for="">Nhà mạng</label>
-                        @error('sim.network_id')<span class="text-sm text-red-500">{{$message}}</span> @enderror
+                        @error('network')<span class="text-sm text-red-500">{{$message}}</span> @enderror
 
-                        <input type="text" class=" px-3 py-2.5 border border-gray-200  w-full rounded" placeholder="Số điện thoại">
+                        {{-- <input type="text" class=" px-3 py-2.5 border border-gray-200  w-full rounded" placeholder="Nhà mạng"> --}}
+                        <select wire:model='network' class=" px-3 py-2.5 border border-gray-200  w-full rounded">
+                            <option>Chọn nhà mạng</option>
+                            @foreach ($networks as $item )
+                            <option value="{{$item->id}}">{{$item->name}}</option>
+                            @endforeach
+                        </select>
                     </div>
                     <div class=" text-left mb-3">
                         <label for="">Ngày nhập</label>
