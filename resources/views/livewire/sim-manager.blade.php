@@ -177,6 +177,7 @@
                 </thead>
                 <tbody class="text-gray-600 text-sm font-light">
                     @foreach ($simCards as $sim )
+                    {{-- @dd($sim) --}}
                     {{-- @dd($loop->count) --}}
                     <tr class="border-b border-gray-200 hover:bg-gray-100">
                         <td class="py-3 px-6 text-left whitespace-nowrap">
@@ -192,7 +193,7 @@
                             <span>{{$sim->old_iccid}}</span>
                         </td>
                         <td class="py-3 px-6 text-center">
-                            <span>{{$sim->network->name ?? ''}}</span>
+                            <span>{{$sim->network ? $sim->network->name : ''}}</span>
                         </td>
                         <td class="py-3 px-6 text-center">
                             <span>{{number_format($sim->price_in)}}</span>

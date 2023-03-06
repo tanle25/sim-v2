@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Models\Network;
 use App\Models\Sim;
+use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 use LivewireUI\Modal\ModalComponent;
 
@@ -32,7 +33,7 @@ class UpdateMultipleSimNetwork extends ModalComponent
     public function submit()
     {
         # code...
-        // dd($this->sims);
+        // dd($this->network);
         $this->validate([
             'network'=>'required'
         ],[
@@ -40,9 +41,10 @@ class UpdateMultipleSimNetwork extends ModalComponent
         ],[
             'network'=>'Nhà mạng'
         ]);
-        $sims = Sim::whereIn('id',$this->sims)->update([
-            'network_id' => $this->network
-        ]);
+        // $sims = Sim::whereIn('id',$this->sims)->update([
+        //     'network_id' => $this->network
+        // ]);
+        DB::table('sims')->whereIn('id',$this->sims)->update(['network_id'=>$this->network]);
         $this->emitTo('livewire-toast', 'show', 'Cập nhật thành công!');
         $this->emit('reloadData');
         $this->emit('closeModal');

@@ -119,11 +119,14 @@ class SimManager extends Component
     public function render()
     {
         $keyword = $this->keyword;
-        $collection = DB::table('sims')->where(function($q) use($keyword){
-            return $q->where('phone','like',"%$keyword%")
-            ->orWhere('iccid','like',"%$keyword%");
-        });
-
+        // $collection = DB::table('sims')->where(function($q) use($keyword){
+        //     return $q->where('phone','like',"%$keyword%")
+        //     ->orWhere('iccid','like',"%$keyword%");
+        // });
+            $collection = Sim::where(function($q) use($keyword){
+                    return $q->where('phone','like',"%$keyword%")
+                    ->orWhere('iccid','like',"%$keyword%");
+                });
         // $collection->where('phone','LIKE',"%{$keyword}%");
         if(count($this->filterNetworks)){
             $collection = $collection->whereIn('network_id', $this->filterNetworks);
