@@ -78,7 +78,7 @@
                             <span class="font-medium">{{$invoice->type == 0 ?'Cho thuê' : 'Gia hạn'}}</span>
                         </td>
                         <td class="py-3 px-6 text-left whitespace-nowrap">
-                            <span class="font-medium">{{$invoice->sim->owner->type}}</span>
+                            <span class="font-medium">{{$invoice->sim->owner->type ?? ''}}</span>
                         </td>
                         <td class="py-3 px-6 text-left whitespace-nowrap">
                             <span class="font-medium">{{number_format($invoice->price_in)}}</span>
